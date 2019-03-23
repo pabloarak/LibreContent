@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <span>Libre Content App</span>
+</mat-toolbar>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Contenido
+      </mat-panel-title>
+      <mat-panel-description>
+        Crear o editar nuevo contenido
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="Título" id="title" #title>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Autor" id="author" #author>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Descripcion" id="description" #description>
+    </mat-form-field>
+
+    <button mat-raised-button color="accent" (click)="addContent(title.value, author.value, description.value)">Crear</button>
+  </mat-expansion-panel>
+  <mat-list>
+    <mat-list-item *ngFor="let content of contents">
+      <h3 matLine> {{content.title}} </h3>
+      <p matLine> {{content.author}} </p>
+      <p matLine class="demo-2"> {{content.description}} </p>
+    </mat-list-item>
+  </mat-list>
+</mat-accordion>
+

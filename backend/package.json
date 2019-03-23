@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "Backend of Libre Content App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pablo Arak",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
+  }
+}
