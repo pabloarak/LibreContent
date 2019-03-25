@@ -13,24 +13,24 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <input matInput placeholder="Título" id="title" #title>
+      <input matInput placeholder="Título" [(ngModel)]="content.title">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Autor" id="author" #author>
+      <input matInput placeholder="Autor" [(ngModel)]="content.author">
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput placeholder="Descripcion" id="description" #description>
+      <input matInput placeholder="Descripción" [(ngModel)]="content.description">
     </mat-form-field>
 
-    <button mat-raised-button color="accent" (click)="addContent(title.value, author.value, description.value)">Crear</button>
+    <button mat-raised-button color="accent" (click)="addOrEditContent()">Crear Contenido</button>
   </mat-expansion-panel>
   <mat-list>
-    <mat-list-item *ngFor="let content of contents">
-      <h3 matLine> {{content.title}} </h3>
+    <mat-list-item *ngFor="let content of contents" (click)="selectContent(content)">
+      <h3 matLine> {{content.title}} <div class='icono-eliminar' (click)="deleteContent(content._id)">❌</div></h3>
       <p matLine> {{content.author}} </p>
-      <p matLine class="demo-2"> {{content.description}} </p>
+      <p matLine> {{content.description}} </p>
     </mat-list-item>
   </mat-list>
 </mat-accordion>
