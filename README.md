@@ -1,6 +1,6 @@
 # Libre Content App
 
-App for register any content which you thinking.
+Simple App for register any content which you thinking.
 
 ## Stack
 
@@ -24,9 +24,8 @@ $ docker-compose up -d
 
 ## Frontend
 
-http://localhost:4200
+http://localhost:8080
 
-## TO DO
+![1](https://i.imgur.com/qEI3V4K.png)
 
-- Frontend : edit and delete buttons, routes and UI details.
-- Backend : finish de functionality of printNumber, printStair and nearbyEvent.
+![2](https://i.imgur.com/2Bw1ukH.png)
