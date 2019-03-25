@@ -57,7 +57,7 @@ exports.contentList = (req, res) => {
 exports.contentUpdate = (req, res) => {
     if(!req.body) {
         return res.status(400).send({
-            message: "Content content can not be empty"
+            message: "Content can not be empty"
         });
     }
 
@@ -110,11 +110,11 @@ exports.contentDelete = (req, res) => {
 
 exports.printStair = (req, res) => {
     const times = req.params.times;
-    const line = Array(times + 1).fill(' ');
-    for (let i = times - 1; i >= 0; i--) {
+    const line = [];
+    
+    for (let i = 0; i < times; i++) {
         line[i] = '#';
-        //console.log(line.join(''));
-        res.write(line.join('')+"\n");
+        res.write(' '.repeat(times - i) + line.reduce((a, b) => a + b, '') + "\n");
     }
 
     res.end();
@@ -122,19 +122,13 @@ exports.printStair = (req, res) => {
 
 exports.printNumber = (req, res) => {
     
-    const number = req.params.number;
-    
-    let reverseDigits = number.toString().split('').reverse();
+    const digits = Array.from(req.params.number);
+    let line = [];
 
-    const line = Array(reverseDigits.length + 1).fill(' ');
-
-    let lineSize = line.length;
-
-    reverseDigits.forEach((digit,index) => {
+    digits.forEach((digit,index) => {
         
-        line[lineSize] = digit;
-        lineSize = lineSize - 1;
-        res.write(line.reduce((a, b) => a + b, '')+"\n");
+        line[index] = digit;
+        res.write(' '.repeat(digits.length - index) + line.reduce((a, b) => a + b, '') + "\n");
     });
 
     res.end();
